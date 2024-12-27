@@ -4,18 +4,18 @@ interface SelectBaseProps extends React.InputHTMLAttributes<HTMLSelectElement> {
   label: string;
   name: string;
   options?: any[];
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
+  errMes?: string;
 }
 
 const SelectBase: React.FC<SelectBaseProps> = ({
   label,
   name,
   options = [],
-  required,
-  value = "",
-  onChange,
+  required = false,
+  errMes,
   ...props
 }) => {
   return (
@@ -24,9 +24,6 @@ const SelectBase: React.FC<SelectBaseProps> = ({
       <div className="flex items-center gap-2 p-2 border border-gray-200">
         <select
           name={name}
-          required
-          value={value}
-          onChange={onChange}
           {...props}
           className="flex-1 outline-none border-none"
         >
@@ -39,6 +36,7 @@ const SelectBase: React.FC<SelectBaseProps> = ({
             ))}
         </select>
       </div>
+      {errMes && <p className="text-red-500 text-[13px] mt-2">{errMes}</p>}
     </div>
   );
 };

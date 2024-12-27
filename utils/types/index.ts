@@ -20,3 +20,7 @@ export interface MyInformationForm {
   health_issue_id: string;
   jobs_interested_in: string;
 }
+
+export interface FormErrors {
+  [key: string]: string;
+}

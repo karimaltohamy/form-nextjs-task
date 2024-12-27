@@ -1,17 +1,5 @@
 export interface AuthContextType {
   signOut: () => void;
-  jobTitlesGroup: any[];
-  sectorsGroup: any[];
-  functionalAreasGroup: any[];
-  educationsGroup: any[];
-  experienceLevelsGroup: any[];
-  maritalStatusesGroup: any[];
-  nationalitiesGroup: any[];
-  gendersGroup: any[];
-  residenceStatusesGroup: any[];
-  healthIssuesGroup: any[];
-  drivingLicenseTypesGroup: any[];
-  jobsInterestedInGroup: any[];
 }
 
 export interface ProviderProps {

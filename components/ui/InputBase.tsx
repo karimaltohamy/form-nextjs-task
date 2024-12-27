@@ -5,10 +5,9 @@ interface InputBaseProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
   type: string;
   placeholder?: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   icon?: React.ReactNode;
+  errMes?: string;
 }
 
 const InputBase: React.FC<InputBaseProps> = ({
@@ -16,10 +15,9 @@ const InputBase: React.FC<InputBaseProps> = ({
   name,
   type,
   placeholder,
-  required,
-  value = "",
-  onChange,
+  required = false,
   icon,
+  errMes,
   ...props
 }) => {
   return (
@@ -31,13 +29,12 @@ const InputBase: React.FC<InputBaseProps> = ({
           type={type}
           name={name}
           placeholder={placeholder}
-          value={value}
-          onChange={onChange}
           required={required}
           {...props}
           className="flex-1 outline-none border-none"
         />
       </div>
+      {errMes && <p className="text-red-500 text-[13px] mt-2">{errMes}</p>}
     </div>
   );
 };

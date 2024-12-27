@@ -3,6 +3,7 @@ import "./globals.scss";
 import { brownLight } from "./fonts";
 import { ToastContainer } from "react-toastify";
 import { AuthProvider } from "@/context/auth.context";
+import { ReactQueryProvider } from "@/context/reactQueryProvider";
 
 export const metadata: Metadata = {
   title: "form nextjs task",
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${brownLight.className} bg-primary-50`}>
-        <AuthProvider>{children}</AuthProvider>
+        <ReactQueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ReactQueryProvider>
+
         {/* toast */}
         <ToastContainer />
       </body>
